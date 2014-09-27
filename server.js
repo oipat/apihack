@@ -22,7 +22,7 @@
 
 
 
-/*	var Viesti = mongoose.model('Post', {
+/*	var Model = mongoose.model('Post', {
 		User : String,
 		Text : String,
 		Date : Date,
@@ -31,20 +31,19 @@
 		InUse : Boolean
 	});*/
 
-/*	app.get('/api/resource/:resource_name', function(req, res) {
+	app.get('/api/restaurants/:lng/:lat', function(req, res) {
 
-		Resource.find({
-			Url : req.params.resource_name
-		}, function(err, posts) {
+		var lng = req.params.lng;
+		var lat = req.params.lat;
 
-			if (err)
-				res.send(err)
+		
+		console.log('long: ' + lng + " lat: " + lat);
+		//jj
 
-			res.json(posts);
-		});
-	});
+		//res.json(stuff);
+	}); 
 
-	app.post('/api/resource', function(req, res) {
+/*	app.post('/api/resource', function(req, res) {
 		
 		var title = req.body.title.trim().toLowerCase();
 		console.log(title);
@@ -73,7 +72,7 @@
 
  	// Tää on getti meidän sivulle
 	app.get('*', function(req, res) {
-		res.sendfile('/public/index.html');
+		res.sendfile('./public/index.html');
 	});
 
 	app.listen(8080);
