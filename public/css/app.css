@@ -2,7 +2,9 @@ body{
 	margin: 0;
 }
 
-
+.app{
+	background:white !important;
+}
 /* main container stuff */
 .app-body {
 	position: relative;
@@ -11,4 +13,12 @@ body{
 
 .content {
 	
+}
+
+.restaurant-wrapper{
+	overflow: auto;
+	height:100%;
+}
+.restaurant-wrapper .panel-body{
+	background-color:rgb(243, 243, 243);
 }

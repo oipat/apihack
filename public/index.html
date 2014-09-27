@@ -6,7 +6,7 @@
   <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
   <meta name="apple-mobile-web-app-status-bar-style" content="yes" />
 
-	<title>hackathon</title>
+	<title>Apistew</title>
 
 
 	<!-- Styles -->
@@ -43,7 +43,7 @@
 
       <div class="navbar navbar-app navbar-absolute-top">
         <div class="navbar-brand navbar-brand-center" yield-to="title">
-          <a href="#/"><span>hackathon</span></a>
+          <a href="#/"><span>ApiStew</span></a>
         </div>
         <div class="btn-group pull-left">
           <div ng-click="toggle('mainSidebar')" class="btn btn-navbar sidebar-toggle">
@@ -63,8 +63,7 @@
         <div ng-show="loading" class="app-content-loading">
           <i class="fa fa-spinner fa-spin loading-spinner"></i>
         </div>
-
-        <ng-view class="app-content" ng-hide="loading"></ng-view>
+          <ng-view class="app-content" ng-hide="loading"></ng-view>
       </div>
 
     </div><!-- ~ .app -->

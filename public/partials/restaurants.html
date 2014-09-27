@@ -1,0 +1,29 @@
+
+<div class="restaurant-wrapper" ng-controller="restaurantCtrl">
+	<table class="table">
+		<tr ng-repeat = "restaurant in restaurants">
+		<td>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<table>
+					<tr clss="row">
+					<td class="col-md-4">
+						<img src="http://lorempixel.com/150/150/city" class="img-square img-responsive" width="150" height="150">
+					</td>	
+					<td class="col-md-8">
+						<ul class="list-group">
+						<li class="list-group-item"> {{restaurant.name}} </li>
+						<li class="list-group-item"> {{restaurant.distance}} </li>
+
+						</ul>
+					</td>
+					</tr>
+				</table> 
+			</div>
+
+		
+		</div>
+		</td>
+		</tr>
+	</table>
+</div>
