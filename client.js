@@ -6,8 +6,8 @@ define("client", [], function() {
 	client = new Client();
 
 	client.get('http://www.lolnas.fi/api/restaurants.json', 'GET', function (data, response) {
-	console.log(data);
-	console.log(response);
-});
+		console.log(data);
+		console.log(response);
+	});
 });
 

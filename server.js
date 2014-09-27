@@ -8,6 +8,7 @@
 	var bodyParser = require('body-parser'); 	// pull information from HTML POST (express4)
 	var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
 	var unorm = require('unorm');
+	var _ = require('underscore');
 
 	// konfiguraatio
 
@@ -31,14 +32,40 @@
 		InUse : Boolean
 	});*/
 
-	app.get('/api/restaurants/:lng/:lat', function(req, res) {
+	app.get('/api/restaurants/:lat/:lng/', function(req, res) {
 
-		var lng = req.params.lng;
-		var lat = req.params.lat;
-
+		var lng = parseFloat(req.params.lng);
+		var lat = parseFloat(req.params.lat);
+		console.log(lat);
+		var maxDelta = 0.01;
 		
 		console.log('long: ' + lng + " lat: " + lat);
-		//jj
+
+		var Client = require('node-rest-client').Client;
+
+		client = new Client();
+
+
+
+		client.get('http://www.lolnas.fi/api/restaurants.json', 'GET', function (data, response) {
+			var restaurants = [];
+			var asd = JSON.parse(data);
+
+			console.log(asd.restaurants);
+			_.each(asd.restaurants, function(item){
+				var newLng = parseFloat(item.longitude);
+				var newLat = parseFloat(item.latitude);
+				var lngDelta = Math.abs(newLng - lng);
+				var latDelta = Math.abs(newLat - lat);
+
+				if(lngDelta < maxDelta && latDelta < maxDelta){
+					restaurants.push(item);				
+				}
+				
+			});
+
+			res.json(restaurants);
+		});
 
 		//res.json(stuff);
 	}); 
