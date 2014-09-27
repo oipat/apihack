@@ -37,7 +37,7 @@
 		var lng = parseFloat(req.params.lng);
 		var lat = parseFloat(req.params.lat);
 		console.log(lat);
-		var maxDelta = 0.003;
+		var maxDelta = 0.01111;
 		var clientId = '5BA839F112CE4CCEBF57A49D98D29A44';
 		
 		console.log('long: ' + lng + " lat: " + lat);
@@ -60,12 +60,11 @@
 				var latDelta = Math.abs(newLat - lat);
 
 				if(lngDelta < maxDelta && latDelta < maxDelta){
-					console.log(item);
 					var reqStr = "https://www.googleapis.com/customsearch/v1?key=AIzaSyDggXGnF2rW6E56Jv8wh12P-UnUhJJCGXQ&cx=010857121049557165748:ox6rkvzbdfs&q=" + item.name;
 
 					client.get(reqStr, 'GET', function (data, response){
-						item.image = JSON.parse(data).items[0].pagemap.cse_image[0].src;
-						console.log(item);
+						var rolf = JSON.parse(data);
+						item.image = "http://www.pakkotoisto.com/attachments/kilpailijat-ja-bodyjuorut/118942d1407388577-mika-nyyssola-da-house-kuvia-180680c5918401c92a48f8c2580f059b.jpg";
 
 						
 					});
@@ -76,8 +75,8 @@
  				
  					client.get(dosaStr, 'GET', function (data, response){
 							var jiison = JSON.parse(data);
-							item.duration = jiison[0][0].duration;
-							item.distans = jiison[0][0].length;
+							item.duration = parseInt(jiison[0][0].duration)/60;
+							item.distans = (parseFloat(jiison[0][0].length)/1000).toFixed(2);
 							
 						
 						});	
@@ -89,7 +88,7 @@
  setTimeout(function(){
 					console.log("jou");
 								res.json(restaurants);
-				}, 2000);
+				}, 3000);
 
 		});
  		

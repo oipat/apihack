@@ -35,7 +35,6 @@
 
 	<div ng-include="'partials/left.html'" class="sidebar sidebar-left" toggleable parent-active-class="sidebar-left-in" id="mainSidebar"></div>
 
-    <div ng-include="'partials/right.html'" class="sidebar sidebar-right" toggleable parent-active-class="sidebar-right-in" id="rightSidebar"></div>
 
 	<div class="app">
 
@@ -47,15 +46,9 @@
         </div>
         <div class="btn-group pull-left">
           <div ng-click="toggle('mainSidebar')" class="btn btn-navbar sidebar-toggle">
-            <i class="fa fa-bars"></i> Joo
+            <i class="fa fa-bars"></i> Menu
           </div>
         </div>
-        <div class="btn-group pull-right" yield-to="navbarAction">
-          <div ng-click="toggle('rightSidebar')" class="btn btn-navbar">
-            <i class="fa "></i> Jaa
-          </div>
-        </div>
-      </div>
 
 
       <!-- App Body -->
