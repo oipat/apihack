@@ -38,6 +38,7 @@
 		var lat = parseFloat(req.params.lat);
 		console.log(lat);
 		var maxDelta = 0.01;
+		var clientId = '5BA839F112CE4CCEBF57A49D98D29A44';
 		
 		console.log('long: ' + lng + " lat: " + lat);
 
@@ -51,7 +52,7 @@
 			var restaurants = [];
 			var asd = JSON.parse(data);
 
-			console.log(asd.restaurants);
+			
 			_.each(asd.restaurants, function(item){
 				var newLng = parseFloat(item.longitude);
 				var newLat = parseFloat(item.latitude);
@@ -59,6 +60,15 @@
 				var latDelta = Math.abs(newLat - lat);
 
 				if(lngDelta < maxDelta && latDelta < maxDelta){
+					var reqStr = "http://api.bing.net/json.aspx?"
+							+ "AppId=" + clientId
+							+ "&Query=" + item.name
+							+ "&Sources=Image";
+
+					/*client.get(reqStr, 'GET', function (data, response){
+						console.log(data);
+					});*/
+					item.image = "http://upload.wikimedia.org/wikipedia/commons/a/a0/Lasipalatsi.jpg";
 					restaurants.push(item);				
 				}
 				
