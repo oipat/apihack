@@ -1,0 +1,14 @@
+body{
+	margin: 0;
+}
+
+
+/* main container stuff */
+.app-body {
+	position: relative;
+	z-index: 1;
+}
+
+.content {
+	
+}

@@ -1,0 +1,16 @@
+{
+  "name": "mitamaksaa",
+  "version": "0.0.0",
+  "description": "Simple todo application.",
+  "main": "server.js",
+  "author": "Tepsodent",
+  "dependencies": {
+    "body-parser": "*",
+    "express": "*",
+    "method-override": "^2.2.0",
+    "mongoose": "^3.9.2",
+    "morgan": "*",
+    "underscore": "^1.7.0",
+    "unorm": "*"
+  }
+}
